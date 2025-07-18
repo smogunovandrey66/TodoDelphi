@@ -1,11 +1,243 @@
-object Form2: TForm2
+object FormMain: TFormMain
   Left = 0
   Top = 0
   Caption = 'Form2'
-  ClientHeight = 480
-  ClientWidth = 640
+  ClientHeight = 499
+  ClientWidth = 471
+  Padding.Top = 10.000000000000000000
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  DesignerMasterStyle = 0
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object ListViewMain: TListView
+    ItemAppearanceClassName = 'TDynamicAppearance'
+    ItemEditAppearanceClassName = 'TDynamicAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Images = imglst
+    Align = Client
+    Size.Width = 471.000000000000000000
+    Size.Height = 441.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    ItemAppearance.HeaderHeight = 90
+    ItemAppearance.FooterHeight = 90
+    ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.TextAlign = Leading
+        Appearance.WordWrap = True
+        Appearance.Width = 505.000000000000000000
+        Appearance.Height = 44.000000000000000000
+        Appearance.PlaceOffset.X = 30.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Image'
+        AppearanceClassName = 'TImageObjectAppearance'
+        Appearance.Width = 31.000000000000000000
+        Appearance.Height = 20.000000000000000000
+        Appearance.PlaceOffset.Y = 14.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Id'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Width = 49.000000000000000000
+        Appearance.Height = 44.000000000000000000
+        Appearance.Visible = False
+        Appearance.PlaceOffset.X = 14.000000000000000000
+      end>
+    ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text1'
+        AppearanceClassName = 'TTextObjectAppearance'
+      end>
+    ItemAppearanceObjects.HeaderObjects.Text.Width = 359.000000000000000000
+    ItemAppearanceObjects.HeaderObjects.Text.Height = 90.000000000000000000
+    ItemAppearanceObjects.FooterObjects.Text.Height = 90.000000000000000000
+    OnItemClickEx = ListViewMainItemClickEx
+    OnDeletingItem = ListViewMainDeletingItem
+  end
+  object PanelBottom: TPanel
+    Align = Bottom
+    Position.Y = 424.000000000000000000
+    Size.Width = 471.000000000000000000
+    Size.Height = 75.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 5
+    object ButtonTest: TButton
+      Position.X = 24.000000000000000000
+      Position.Y = 29.000000000000000000
+      TabOrder = 1
+      Text = 'Test'
+      TextSettings.Trimming = None
+      OnClick = ButtonTestClick
+    end
+  end
+  object PanelTop: TPanel
+    Align = Top
+    Position.Y = 10.000000000000000000
+    Size.Width = 471.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    object ButtonAdd: TButton
+      Anchors = [akTop, akRight]
+      StyledSettings = [Style, FontColor]
+      Position.X = 388.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 75.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = #1044#1086#1073#1072#1074#1080#1090#1100
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Trimming = None
+      OnClick = ButtonAddClick
+    end
+    object EditTitle: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Anchors = [akLeft, akTop, akRight]
+      TabOrder = 1
+      Position.X = 24.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 353.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object SpeedButton1: TSpeedButton
+    Position.X = 464.000000000000000000
+    Position.Y = 200.000000000000000000
+    Text = 'SpeedButton1'
+    TextSettings.Trimming = None
+  end
+  object PrototypeBindSourceMain: TPrototypeBindSource
+    AutoActivate = False
+    AutoPost = False
+    RecordCount = 20
+    FieldDefs = <
+      item
+        Name = 'BoolField1'
+        FieldType = ftBoolean
+        Generator = 'Booleans'
+      end
+      item
+        Name = 'ContactName'
+        Generator = 'ContactNames'
+      end
+      item
+        Name = 'BoolField_ftString'
+        Generator = 'Booleans'
+      end
+      item
+        Name = 'UIntField1'
+        FieldType = ftInteger
+        Generator = 'UIntegers'
+      end
+      item
+        Name = 'IntField1'
+        FieldType = ftSingle
+        Generator = 'Integers'
+      end>
+    ScopeMappings = <>
+    Left = 320
+    Top = 88
+  end
+  object BindingsListMain: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 320
+    Top = 152
+    object LinkFillControlToField1: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      Control = ListViewMain
+      Track = True
+      FillDataSource = PrototypeBindSourceMain
+      AutoFill = True
+      FillExpressions = <
+        item
+          SourceMemberName = 'ContactName'
+          ControlMemberName = 'Text'
+        end
+        item
+          SourceMemberName = 'IntField1'
+          ControlMemberName = 'Image'
+          CustomFormat = '0'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+  object imglst: TImageList
+    Source = <
+      item
+        MultiResBitmap = <
+          item
+            Scale = 3.000000000000000000
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C0864880000016C494441546881ED99CD4AC3
+              4014853F7FB68A6BBB76651F47E9421FA64B1FA505BBF79D8A8B66AB902E9201
+              1D32E3FCDC3B89700F0C34A43DE77C77D2045A30994CA625EB0138001DD0375E
+              1DB0075635E53F6728EEAF6329C46101E5DDDA854A5E44003AE026135A4B27E0
+              6EEA440CA0CF78AF8692F22F1B14519501CC2D03985B4B0078D432F61F261A7A
+              06BE80378D7C6D0057DEF9FB108B06D8F0BB7C3F1EAF25F3B500FCC9F7C037F0
+              229DAF01905A5E245F1A20A7BC48BE24406E7991FC1483947B78E80BBB11C8AF
+              32D8324CF135E25132F9D4FC2A83AD57680AA2A6FC5FF95506EB8962FE25517A
+              D9340100789A28E876A276F24D00203CE5DAC9A7E68B184CED44EDE473F2450C
+              421035E573F2450C7C88DAF2B9F922060E42A27C72FEB54090D33B7035BEDE0B
+              FA46653F6CCDAD7F0F10FB0E74C0ED8FE3A23B81904EA113B11DF8502852AAA2
+              2E2B863F17424FD956EB08DC9700307E70C7B085AD8B9FC6ECE2F22693C9A4AF
+              33C050A93BD3ED934C0000000049454E44AE426082}
+            FileName = 
+              'C:\Users\Andrey\Documents\Embarcadero\Studio\Projects\TodoDelphi' +
+              '\res\checkbox-select-48.png'
+          end>
+        Name = 'checkbox-select'
+      end
+      item
+        MultiResBitmap = <
+          item
+            Scale = 3.000000000000000000
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C08648800000107494441546881ED994B6EC2
+              4010445F58F818C0415016FC8EC8E7724116116B606D048B214A13C90E6EE369
+              16F5A4916631AAAE9A91376510428877670C6C813D5001D79E57759FB501465D
+              CD2F817306D375EB04CCBDE6C7C1E66D88A127C0D6887C0153A0F008B5A40066
+              C0CECC5F7B84F64660FA2A772D9899F9A547C07EB0396EFE2F85995FD51DFA68
+              10B83E79AE4FFEF530C864A43714201A05884601A251806814201A05884601A2
+              51806814201A05884601A2690A7031FBA862EB874BDDA1A60007B39F74B6D39E
+              4FB3FFF6086CF8ADF676A49A3B57B9BBE0B1DC5D798446A46A3BBA5E3FE2ACD7
+              21DD7A648823A9A5EEC490F48425F97E3195F799EE9B1742883CDC002296E072
+              19B66FC90000000049454E44AE426082}
+            FileName = 
+              'C:\Users\Andrey\Documents\Embarcadero\Studio\Projects\TodoDelphi' +
+              '\res\checkbox-empty-48.png'
+          end>
+        Name = 'checkbox-empty'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'checkbox-empty'
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'checkbox-select'
+          end>
+      end>
+    Left = 176
+    Top = 80
+  end
 end
