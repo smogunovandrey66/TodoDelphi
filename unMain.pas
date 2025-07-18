@@ -49,8 +49,6 @@ var
 implementation
 
 {$R *.fmx}
-{$R *.LgXhdpiTb.fmx ANDROID}
-{$R *.XLgXhdpiTb.fmx ANDROID}
 
 procedure TFormMain.AddTaskItem(ATaskItem: TTaskItem);
 begin
