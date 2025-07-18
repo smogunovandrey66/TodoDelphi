@@ -1,0 +1,20 @@
+object Frame1: TFrame1
+  Size.Width = 320.000000000000000000
+  Size.Height = 32.000000000000000000
+  Size.PlatformDefault = False
+  object chTaskItem: TCheckBox
+    Touch.GestureManager = GestureManager1
+    Align = Top
+    StyledSettings = [Family, Size, FontColor]
+    Size.Width = 320.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'chTaskItem'
+  end
+  object GestureManager1: TGestureManager
+    Sensitivity = 80.000000000000000000
+    Left = 232
+    Top = 8
+  end
+end
